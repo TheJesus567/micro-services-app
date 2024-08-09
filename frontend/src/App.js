@@ -43,6 +43,7 @@ function App() {
         method: 'POST',
         body: JSON.stringify({
           text: goalText,
+
           
         }),
         headers: {
