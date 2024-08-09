@@ -14,7 +14,7 @@ function App() {
       setIsLoading(true);
 
       try {
-        const response = await fetch(`http://localhost/goals`); //todo -> update url when it start to use K8S
+        const response = await fetch(`http://${process.env.WHAT}/goals`); //todo -> update url when it start to use K8S
 
         const resData = await response.json();
 
@@ -39,10 +39,11 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`http://localhost/goals`, { //todo -> update url when it start to use K8S
+      const response = await fetch(`http://${process.env.WHAT}/goals`, { //todo -> update url when it start to use K8S
         method: 'POST',
         body: JSON.stringify({
           text: goalText,
+          
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -78,7 +79,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`http://localhost/goals/` + goalId, { //todo -> update url when it start to use K8S
+      const response = await fetch(`http://${process.env.WHAT}/goals/` + goalId, { //todo -> update url when it start to use K8S
         method: 'DELETE',
       });
 
