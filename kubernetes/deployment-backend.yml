@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: thejesus567/micro-services-app-backend:latest
+        env:
+          - name: MONGODB_USERNAME
+            value: thejesus567
+          - name: MONGODB_PASSWORD
+            value: QoKdyICK9royUMH5
+          - name: MONGODB_DATABASE_NAME
+            value: dev-goals
+
+
+          
+
